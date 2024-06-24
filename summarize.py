@@ -15,7 +15,6 @@ def summarize_audio(media_filename, llm):
     summarize_transcripts(Path(media_filename).stem, llm)
     clean_workdir()
 
-
 def summarize_youtube(url, llm):
     media_file = download_audio(url)
     os.rename('tmp_audio.wav', media_file + '.wav')
@@ -24,8 +23,6 @@ def summarize_youtube(url, llm):
 
 def clean_workdir():
     os.system('rm -rf parts')
-    os.system('rm tmp_audio.*')
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='summary-ai', description='Summarize Youtube video or media using LLM')
